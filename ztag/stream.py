@@ -168,7 +168,7 @@ class PythonPrint(Outgoing):
         super(PythonPrint, self).__init__()
 
     def take(self, obj):
-        print obj
+        print(obj)
 
 
 class OutputFile(Outgoing):

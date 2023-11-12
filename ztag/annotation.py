@@ -426,7 +426,7 @@ class Annotation(object):
                             __import__(modname)
                         except:
                             cls._annotation_annotations_fail += 1
-                            print "WARNING: unable to import %s" % modname
+                            print("WARNING: unable to import %s" % modname)
                     else:
                         __import__(modname)
         recursive_add(ztag.annotations.__path__, "ztag.annotations.")

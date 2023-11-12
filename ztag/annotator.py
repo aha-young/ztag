@@ -48,7 +48,7 @@ class AnnotationTesting(object):
         total = 0
         failures = 0
         have_tests = 0
-        print "\n" + "="*25 + " ZTag Tests " + "="*25
+        print("\n" + "="*25 + " ZTag Tests " + "="*25)
         for A in sorted(Annotation.iter(), key=lambda x: x.__name__):
             total += 1
             annotation = A()
@@ -95,18 +95,18 @@ class AnnotationTesting(object):
                         errors.append("  - %s (%s):\n     %s (received)\n     %s (expected)" % (k, "global metadata", str(output.global_metadata.to_dict(with_description=False)), str(expected_global_metadata)))
                         global_metadata_match = False
                 if errors:
-                    print "{0}: \033[01;31mfail\033[00m".format(annotation.__class__.__name__)
+                    print("{0}: \033[01;31mfail\033[00m".format(annotation.__class__.__name__))
                     for error in errors:
-                        print error
+                        print(error)
                     failures += 1
                 else:
-                    print "{0}: \033[1;92m{1}\033[00m".format(annotation.__class__.__name__, "success")
+                    print("{0}: \033[1;92m{1}\033[00m".format(annotation.__class__.__name__, "success"))
             else:
-                print "{0}: \033[1;94mno tests\033[00m".format(annotation.__class__.__name__)
+                print("{0}: \033[1;94mno tests\033[00m".format(annotation.__class__.__name__))
         # print summary information
-        print "\n" + "="*25 + " Summary " + "="*25 + "\n"
-        print "annotation modules loaded: %i/%i" % (Annotation._annotation_annotations_total - Annotation._annotation_annotations_fail, Annotation._annotation_annotations_total)
-        print "test coverage: %i/%i" % (have_tests, total)
-        print "tests passing: %i/%i" % (have_tests - failures, have_tests)
-        print "\n"
+        print("\n" + "="*25 + " Summary " + "="*25 + "\n")
+        print("annotation modules loaded: %i/%i" % (Annotation._annotation_annotations_total - Annotation._annotation_annotations_fail, Annotation._annotation_annotations_total))
+        print("test coverage: %i/%i" % (have_tests, total))
+        print("tests passing: %i/%i" % (have_tests - failures, have_tests))
+        print()
         return 1 if failures or Annotation._annotation_annotations_fail else 0
